@@ -7,7 +7,7 @@ npm install
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+npm start
 ```
 
 ### Compiles and minifies for production
@@ -15,9 +15,14 @@ npm run serve
 npm run build
 ```
 
-### Lints and fixes files
+### Test components
 ```
-npm run lint
+npm run test
+```
+
+### Check test coverage
+```
+npm run coverage
 ```
 
 ### Customize configuration
