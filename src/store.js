@@ -1,4 +1,5 @@
 import Vue from 'vue'
+
 const logger = (...args) => console.log(
   `ev:${args[0]}`, // event message
   ...args.splice(1)
@@ -18,7 +19,12 @@ export const getters = {
 
 export const mutations = {
   addToCartEvent: product => state.listProducts.push(product),
-  removeFromCartEvent: product => state.listProducts.splice(product)
+  removeFromCartEvent: product => {
+    if (state.listProducts.indexOf(product) > -1) {
+      state.listProducts.splice(state.listProducts.indexOf(product), 1)
+    }
+  },
+  clearCartEvent: () => state.listProducts = []
 }
 
 export const actions = {
@@ -31,6 +37,7 @@ export const actions = {
     logger('removeFromCart', product, state.listProducts)
   },
   clearCart: () => {
+    mutations.clearCartEvent()
     logger('clearCart')
   }
 }

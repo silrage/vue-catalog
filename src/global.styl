@@ -1,0 +1,57 @@
+/**
+ * GLOBAL Styles
+ */
+html,
+body,
+p
+  margin 0
+  padding 0
+
+.wrap
+  max-width 1200px
+  margin-left auto
+  margin-right auto
+  padding-left $spaceX2
+  padding-right $spaceX2
+  position relative
+
+.box
+  padding $spaceX2
+  position relative
+  &X1
+    padding $spaceX1
+  &X2
+    padding $spaceX2
+  &X3
+    padding $spaceX3
+  &X4
+    padding $spaceX4
+  &X5
+    padding $spaceX5
+
+.less
+  &X1
+    margin-left -($spaceX1)
+    margin-right -($spaceX1)
+  &X2
+    margin-left -($spaceX2)
+    margin-right -($spaceX2)
+  &X3
+    margin-left -($spaceX3)
+    margin-right -($spaceX3)
+  &X4
+    margin-left -($spaceX4)
+    margin-right -($spaceX4)
+  &X5
+    margin-left -($spaceX5)
+    margin-right -($spaceX5)
+
+.inline
+  display inline-block
+
+.flex
+  display flex
+  &-justify-space-between
+    justify-content space-between
+  &-align-center
+    align-items center

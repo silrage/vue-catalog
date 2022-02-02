@@ -1,48 +1,42 @@
 <script>
 import Project from '../package.json'
-import Cart from './components/catalog/Cart.vue'
 import MessageBox from './components/MessageBox.vue'
-import Product from './components/catalog//Product.vue'
+import '@catalog' // Dynamic components
+import catalogItems from '@catalog/list.js'
+import './global.styl'
 
 export default {
-  components: {
-    MessageBox
-  },
   data() {
     return {
       appName: `Project: ${Project.name}`,
-      greeting: 'Hello world!'
+      appVersion: `ver ${Project.version}`,
+      greeting: 'Kitties catalog',
+      data: catalogItems
     }
   },
   render() {
+    const renderProducts = () => this.data
+      .map(item => <Product data={{
+        name: item,
+        image: `${item}.jpg`
+      }}/>)
     return <div class="app">
       <div class="wrap">
-        <h1>{this.appName}</h1>
+        <Cart class="cart--top" />
+        <div class="box">
+          <h1>{this.greeting}</h1>
+          <MessageBox
+            class="inline"
+            msg={`${this.appName} | ${this.appVersion}`}
+            level="info"
+          />
+          <div class="boxX2"></div>
+          <div class="lessX2">
+            {renderProducts()}
+          </div>
+        </div>
       </div>
-      <MessageBox
-        msg={this.greeting}
-        level="info"
-      />
-      <Product />
-      <Cart />
     </div>
   }
 }
 </script>
-
-<style lang="stylus">
-/**
- * GLOBAL Styles
- */
-html,
-body
-  margin 0
-  padding 0
-
-.wrap
-  max-width 1380px
-  margin-left auto
-  margin-right auto
-  padding-left 20px
-  padding-right 20px
-</style>

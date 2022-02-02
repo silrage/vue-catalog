@@ -1,5 +1,5 @@
 <script>
-import { getters, actions } from '../../store'
+import { getters, actions } from '@store'
 
 export default {
   data() {
@@ -33,3 +33,15 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+.cart
+  font-size 14px
+  position relative
+  &--top
+    color $color-gray
+    position absolute
+    top $spaceX2
+    right $spaceX2
+    z-index 50
+</style>

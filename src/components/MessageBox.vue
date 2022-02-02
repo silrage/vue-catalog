@@ -20,10 +20,8 @@ export default {
     }
   },
   render() {
-    return <div class="wrap">
-      <div class={this.classesBox}>
-        <p domPropsInnerHTML={this.msg}></p>
-      </div>
+    return <div class={this.classesBox}>
+      <p domPropsInnerHTML={this.msg}></p>
     </div>
   }
 }
@@ -32,15 +30,16 @@ export default {
 <style lang="stylus">
 .message-box
   border-radius 6px
-  margin 20px 0
-  padding 20px
+  margin $spaceX2 0
+  padding $spaceX2
 
   &--default
     background #777
   &--error
-    background #a77
+    background $color-error
   &--info
-    background #bb0
+    background $color-info
+    color #fff
   &--success
-    background #7a7
+    background $color-success
 </style>
